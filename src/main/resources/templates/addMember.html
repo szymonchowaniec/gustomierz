@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+Add book
+
+<form method="post" th:action="@{/memberadd}" th:object="${member}">
+    <input type="text" th:field="*{name}" />
+    <input type="text" th:field="*{lastneme}" />
+    <input type="text" th:field="*{email}" />
+    <input type="submit" value="Send" />
+</form>
+
+</form>-->
+
+</body>
+</html>
