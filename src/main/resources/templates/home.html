@@ -46,11 +46,16 @@
 
     <div class="gifs container">
         <div class="row">
-            <div th:each="gif : ${gifs}" class="col s12 l4">
-                <a th:href="@{|/gif/${gif.name}|}">
-                    <img th:src="@{|/gifs/${gif.name}.gif|}" />
-                    <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
-                </a>
+            <div class="col s12 l4">
+
+                <form th:action="@{/member/add}" method="post" th:object="${member}" >
+                    Name: <input type="text" th:field="*{name}" />
+                    Lastname: <input type="text" th:field="*{lastname}" />
+                    e-mail: <input type="email" th:field="*{email}" />
+                    <input type="submit" value="Add" />
+                </form>
+
+
             </div>
         </div>
     </div>

@@ -23,12 +23,13 @@ public class GifController {
 
     @GetMapping("/")
     public String showGifs(@RequestParam(required = false) String q, ModelMap modelMap){
+
         LOG.info("user is showing gifs with q={}", q);
 
         List<Gif> gifs = getAndFIlterGifs(q);
         LOG.info("Found gifs={}", gifs);
         modelMap.addAttribute("gifs", gifs);
-        return "home";
+        return "nowa";
     }
 
     private List<Gif> getAndFIlterGifs(String q) {
