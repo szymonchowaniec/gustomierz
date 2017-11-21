@@ -35,25 +35,18 @@
     </div>
 </div>
 <div class="gifs container">
-    <h1> Show Members</h1>
+    teraz wprowadz odpowiedzi które Ci się podobają.
+    <div class="row">
 
-    <a th:href="@{/memberadd}">Add member</a>
+        <div class="col s12 l4">
 
-    <h2>Table</h2>
-    <table border="1">
-        <tr>
-            <th>name</th>
-            <th>lastname</th>
-            <th>email</th>
-        </tr>
-        <tr th:each="member: ${member}" th:object="${member}">
-            <td th:text="*{name}">Author1</td>
-            <td th:text="*{lastname}">Title1</td>
-            <td th:text="*{email}">1234</td>
+            <a href="#">pierwsze słowo</a>
+            <a href="#">pierwsze słowo</a>
+            <a href="#">pierwsze słowo</a>
+            <a href="#">pierwsze słowo</a>
 
-
-        </tr>
-    </table>
+        </div>
+    </div>
 </div>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
@@ -61,11 +54,3 @@
 <script th:src="@{/app.js}"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-

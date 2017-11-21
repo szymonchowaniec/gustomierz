@@ -44,16 +44,21 @@
     </div>
 </div>
 <div class="gifs container">
-    <div class="chip" th:text="${category.name}">category name</div>
+    Add member
     <div class="row">
      
-        <div th:each="gif : ${gifs}" class="col s12 l4">
-      
-            <a th:href="@{'/gif/' + ${gif.name}}">
-               
-                <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}" />
-                <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
-            </a>
+        <div class="col s12 l4">
+
+
+
+
+            <form method="post" th:action="@{/memberadd}" th:object="${member}">
+                <input type="text" th:field="*{name}" />
+                <input type="text" th:field="*{lastname}" />
+                <input type="text" th:field="*{email}" />
+                <input type="submit" value="Send" />
+            </form>
+
         </div>
     </div>
 </div>

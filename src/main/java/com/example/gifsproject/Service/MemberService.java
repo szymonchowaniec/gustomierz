@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
+
 @Service
 public class MemberService {
 
@@ -15,11 +17,12 @@ public class MemberService {
 
     MemberRepository memberRepository;
 
+    String answers;
+
 
     @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
-
 
     }
 
@@ -37,5 +40,9 @@ public class MemberService {
 
     public void removeMember(Long id) {
         memberRepository.delete(id);
+    }
+
+    public void addAnswer(String nextAnswer){
+
     }
 }

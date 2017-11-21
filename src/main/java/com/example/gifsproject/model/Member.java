@@ -1,9 +1,12 @@
 package com.example.gifsproject.model;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.security.acl.LastOwnerException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Member {
@@ -14,6 +17,9 @@ public class Member {
     private String name;
     private String Lastname;
     private String email;
+    
+    @Embedded
+    private Answers answers;
 
     public Member() {
     }
@@ -22,7 +28,9 @@ public class Member {
         this.name = name;
         Lastname = lastname;
         this.email = email;
+
     }
+
 
     public String getName() {
         return name;
