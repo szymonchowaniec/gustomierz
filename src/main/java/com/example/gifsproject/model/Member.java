@@ -1,7 +1,16 @@
 package com.example.gifsproject.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.security.acl.LastOwnerException;
+
+@Entity
 public class Member {
 
+    @Id
+    @GeneratedValue
+    private long id;
     private String name;
     private String Lastname;
     private String email;
