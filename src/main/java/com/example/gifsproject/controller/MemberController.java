@@ -26,7 +26,7 @@ public class MemberController {
     public ModelAndView showForm(ModelMap modelMap){
         modelMap.addAttribute("member", new Member());
 
-        return new ModelAndView("memberadd", modelMap); //@Controller + dependencies(thymleaf) - View
+        return new ModelAndView("addMember", modelMap); //@Controller + dependencies(thymleaf) - View
     }
 
     @PostMapping("/memberadd")
@@ -36,7 +36,7 @@ public class MemberController {
         return "redirect:/showmembers"; //GET
     }
 
-    @GetMapping("/showmember")
+    @GetMapping("/showmembers")
     public String showbook(ModelMap modelMap){
         modelMap.addAttribute("member", memberService.getMembers());
         return "showMembers";

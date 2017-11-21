@@ -9,12 +9,10 @@ Add book
 
 <form method="post" th:action="@{/memberadd}" th:object="${member}">
     <input type="text" th:field="*{name}" />
-    <input type="text" th:field="*{lastneme}" />
+    <input type="text" th:field="*{lastname}" />
     <input type="text" th:field="*{email}" />
     <input type="submit" value="Send" />
 </form>
-
-</form>-->
 
 </body>
 </html>
