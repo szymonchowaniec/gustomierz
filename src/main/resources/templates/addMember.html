@@ -1,59 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="static/vendor/materialize/css/materialize.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="static/app.css" />
+    <link rel="icon" th:href="@{/favicon.png}" />
 
-    <title >Category</title>
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" th:href="@{/app.css}" />
+
+    <title >Formularz wpisania</title>
 </head>
 <body>
 <div class="navbar-fixed">
     <nav>
         <div class="container">
-            <a href="@{/}" class="brand-logo">Gustomierz</a>
+            <a th:href="@{/}" class="brand-logo">Gustomierz</a>
             <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
 
         </div>
     </nav>
 </div>
-<div class="search-bar container">
-    <div class="row">
-        <div class="col s12">
-            <form action="#" method="get">
-                <div class="input-field">
-                    <input name="q" type="search" placeholder="Wyszukaj osobę " required="required" autocomplete="off"/>
-                    <i class="material-icons">search</i>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 <div class="gifs container">
-    Bardzo się cieszę, że chcesz sprawdzić swój gust, proszę o wypełnienie pól i możemy zaczynać.
-    <div class="row">
 
-        <div class="col s12 l4">
+   <h3>Bardzo się cieszę, że chcesz sprawdzić swój gust, proszę o wypełnienie pól i możemy zaczynać.</h3>
 
-
-
-
-            <form method="post" th:action="@{/memberadd}" th:object="${member}">
-                <input type="text" th:field="*{name}" />
-                <input type="text" th:field="*{lastname}" />
-                <input type="text" th:field="*{email}" />
+            <form method="post" th:action="@{/}" th:object="${member}">
+                <input type="text" placeholder="Imię" th:field="*{name}" />
+                <input type="text" placeholder="Nazwisko" th:field="*{lastname}" />
+                <input type="email" placeholder="email" th:field="*{email}" />
                 <input type="submit" value="Zaczynam" />
             </form>
 
-        </div>
-    </div>
 </div>
 
-<script src="static/vendor/jquery/jquery-1.11.3.js"></script>
-<script src="static/vendor/materialize/js/materialize.js"></script>
-<script src="static/app.js"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
+<script th:src="@{/vendor/materialize/js/materialize.js}"></script>
+<script th:src="@{/app.js}"></script>
 </body>
 </html>
