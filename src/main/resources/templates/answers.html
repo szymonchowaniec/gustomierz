@@ -40,6 +40,8 @@
     <h4 class="my-4">Wybierz obrazek, który podaba Ci się najbardziej.
     </h4>
 
+    <form method="post" th:action="@{/addanswer}" th:object="${member}">
+
     <div class="row">
         <div class="col-lg-6 portfolio-item">
             <div class="card h-100">
@@ -48,7 +50,7 @@
                     <h4 class="card-title">
                         <a href="#">Project One</a>
                     </h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                    <p class="card-text" th:field="*{name}">Ostatnia wieczerza.</p>
                 </div>
             </div>
         </div>
@@ -59,7 +61,7 @@
                     <h4 class="card-title">
                         <a href="#">Project Two</a>
                     </h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.</p>
+                    <p class="card-text">Mona Lisa.</p>
                 </div>
             </div>
         </div>
@@ -70,7 +72,7 @@
                     <h4 class="card-title">
                         <a href="#">Project Three</a>
                     </h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                    <p class="card-text">Picasso.</p>
                 </div>
             </div>
         </div>
@@ -81,11 +83,12 @@
                     <h4 class="card-title">
                         <a href="#">Project Four</a>
                     </h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.</p>
+                    <p class="card-text"> Rafael.</p>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </div>
                 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
                 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
