@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/answer/add}" >
+   Pisz co soe tonbie podaba <input type="text" placeholder="Answer" th:name="*{answer}" />
+    <input type="submit" value="answer" />
+
+</form>
+
+</body>
+</html>

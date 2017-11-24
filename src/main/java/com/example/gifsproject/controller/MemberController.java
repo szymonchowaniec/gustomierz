@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -42,25 +39,34 @@ public class MemberController {
 
     @PostMapping("/")
     public String addMember(@ModelAttribute Member member, ModelMap modelMap){
-        memberService.addMember(member);
+       // memberService.addMember(member);
         modelMap.addAttribute("member", member);
         return "redirect:/answer"; //GET
     }
 
     @GetMapping("/answer")
     public String showbook(ModelMap modelMap){
-        modelMap.addAttribute("member", memberService.getMembers());
-        return "answers";
+        return "answernowy";
     }
 
-    @PostMapping("/answer")
-    public String addAnswer(@RequestParam ("answer") String answer, ModelMap modelMap){
+
+    @PostMapping ("/answer/add")
+    public String addAnswer(@RequestParam("answer")String answer, ModelMap modelMap){
         memberService.addAnswer(member,answer);
-        modelMap.addAttribute("answer", answer);
         memberService.addMember(member);
-        System.out.println(member);
-        return "redirect:/answer"; //GET
+        LOG.info("Add answer" + answer);
+        modelMap.addAttribute("member", member);
+        return "answernowy"; //GET
     }
+//
+//    @PostMapping("/answer")
+//    public String addAnswer(@RequestParam ("answer") String answer, ModelMap modelMap){
+//        memberService.addAnswer(member,answer);
+//        modelMap.addAttribute("answer", answer);
+//        memberService.addMember(member);
+//        System.out.println(member);
+//        return "redirect:/answernowy"; //GET
+//    }
 
 
 
