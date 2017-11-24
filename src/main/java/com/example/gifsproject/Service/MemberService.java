@@ -42,7 +42,7 @@ public class MemberService {
         memberRepository.delete(id);
     }
 
-    public void addAnswer(String nextAnswer){
-
+    public void addAnswer(Member member, String answers){
+        member.setAnswer(answers);
     }
 }

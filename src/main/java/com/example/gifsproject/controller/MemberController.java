@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -23,6 +24,8 @@ public class MemberController {
 
     MemberService memberService;
 
+    Member member = new Member();
+
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
@@ -30,23 +33,33 @@ public class MemberController {
 
     @GetMapping("/")
     public ModelAndView showForm(ModelMap modelMap){
-        modelMap.addAttribute("member", new Member());
+
+        modelMap.addAttribute("member",  member);
         LOG.info("Add new member");
 
         return new ModelAndView("addMember", modelMap); //@Controller + dependencies(thymleaf) - View
     }
 
     @PostMapping("/")
-    public String addBook(@ModelAttribute Member member, ModelMap modelMap){
+    public String addMember(@ModelAttribute Member member, ModelMap modelMap){
         memberService.addMember(member);
         modelMap.addAttribute("member", member);
-        return "redirect:/showmembers"; //GET
+        return "redirect:/answer"; //GET
     }
 
-    @GetMapping("/showmembers")
+    @GetMapping("/answer")
     public String showbook(ModelMap modelMap){
         modelMap.addAttribute("member", memberService.getMembers());
         return "answers";
+    }
+
+    @PostMapping("/answer")
+    public String addAnswer(@RequestParam ("answer") String answer, ModelMap modelMap){
+        memberService.addAnswer(member,answer);
+        modelMap.addAttribute("answer", answer);
+        memberService.addMember(member);
+        System.out.println(member);
+        return "redirect:/answer"; //GET
     }
 
 

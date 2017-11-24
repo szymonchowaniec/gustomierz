@@ -17,9 +17,8 @@ public class Member {
     private String name;
     private String Lastname;
     private String email;
-    
-    @Embedded
-    private Answers answers;
+
+    private String answer;
 
     public Member() {
     }
@@ -29,6 +28,13 @@ public class Member {
         Lastname = lastname;
         this.email = email;
 
+    }
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
 
